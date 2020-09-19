@@ -1,0 +1,88 @@
+/*待改善功能：
+1 优化程序结构和判断内核，2 改善画面质量，，4，可随时选择棋子或隔板，7 全鼠标控制棋子和隔板（隔板跟随鼠标移动），10 实现图层的函数，12，人机对战 15 按键disable, 16 自制画图函数*/
+
+v1.1完成：
+解决先按键盘再点鼠标直接移动的bug
+解决先点鼠标再走棋后棋子直接闪烁的bug
+修复remainbar的bug
+优化结构
+添加重新开始按钮
+
+v1.2可缩放版完成：
+可随意设置窗口大小
+修改游戏界面
+检测封闭功能
+优化结构
+
+v1.3分模块多线程版完成：
+分模块
+多线程
+棋子稳定闪烁
+随时切换棋子或隔板
+随时重新开始
+斜跳优化
+优化结构
+
+v1.4网络联机版完成：
+优化多线程
+网络联机
+重开同意机制
+优化结构
+
+v1.5联机完善版完成：
+优化服务器客户端连接
+服务器不转移socket
+
+待完成：
+连接检查
+强退断线处理
+中途返回游戏
+悔棋
+每人第一视角
+退出提醒
+getch,getchar,kbhit 原理
+线程同步问题,广域网问题
+房间制，游戏人数
+回合计时
+显示对手动向
+开始游戏提醒
+
+//keyboard -- bar
+/*char kbbar (struct player *pn)
+{
+	int i = 0;
+	char hit;
+	while (!kbhit ())
+	{
+		if (i % 20 == 0)
+		{
+			setfillstyle (LIGHTBLUE, SOLID_FILL, NULL);
+			bar (pn->bx, pn->by, pn->bx + 79, pn->by + 9);	
+		}
+		if (i % 20 == 10)
+		{
+			putimage (pn->bx, pn->by, &piece[6]);
+		}
+		Sleep (50);
+		i++;
+	}
+	hit = getch();
+	return hit;
+}*/
+
+
+/*click
+MOUSEMSG click ()
+{
+	MOUSEMSG mouse;
+	mouse.uMsg = WM_MOUSEMOVE;
+	while (mouse.uMsg != WM_LBUTTONDOWN)
+	{
+		if (MouseHit ())
+		{
+			mouse = GetMouseMsg ();
+		}
+	}
+	return mouse;
+}
+*/
